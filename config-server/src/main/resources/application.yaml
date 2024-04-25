@@ -7,14 +7,16 @@ spring:
       server:
         git:
           uri: https://github.com/LuisHBeck/ms-config-repo
+          username: ${GIT_USERNAME}
+          password: ${GIT_PASSWORD}
           skipSslValidation: true
           clone-on-start: true
           proxy:
             http:
               host: proxy.br.bosch.com
               port: 8080
-              username: ${USERNAME}
-              password: ${PASSWORD}
+              username: ${PROXY_USERNAME}
+              password: ${PROXY_PASSWORD}
 
 management:
   endpoints:
