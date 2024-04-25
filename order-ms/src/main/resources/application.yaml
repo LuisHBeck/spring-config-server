@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: order-ms
+
+  config:
+    import: configserver:http://127.0.0.1:8080
+
+server:
+  port: 8082
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
