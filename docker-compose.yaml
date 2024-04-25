@@ -1,0 +1,31 @@
+version: '3.3'
+
+services:
+  config-server:
+    container_name: config-server
+    build:
+      context: ./config-server
+    env_file:
+      - ./config-server/.env
+    ports:
+      - 8080:8080
+    networks:
+      - net
+
+  order-ms:
+    depends_on:
+      - config-server
+    restart: unless-stopped
+    container_name: order-ms
+    build:
+      context: ./order-ms
+    environment:
+      CONFIG_SERVER_HOST: http://config-server:8080
+    ports:
+      - 8082:8082
+    networks:
+      - net
+
+networks:
+  net:
+    driver: bridge
