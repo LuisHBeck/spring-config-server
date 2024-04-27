@@ -13,8 +13,8 @@ spring:
           clone-on-start: true
           proxy:
             http:
-              host: proxy.br.bosch.com
-              port: 8080
+              host: ${PROXY_HOST}
+              port: ${PROXY_PORT}
               username: ${PROXY_USERNAME}
               password: ${PROXY_PASSWORD}
 
