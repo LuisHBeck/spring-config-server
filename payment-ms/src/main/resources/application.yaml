@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: payment-ms
+
+  config:
+    import: configserver:${CONFIG_SERVER_HOST:http://127.0.0.1:8080}
+
+server:
+  port: 8083
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
